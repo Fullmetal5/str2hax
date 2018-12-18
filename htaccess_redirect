@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^eula/(.*)/(.*)$ /haxs/$2
