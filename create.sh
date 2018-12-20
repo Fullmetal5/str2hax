@@ -35,7 +35,7 @@ sed -i '/INSERT_HERE/ {
 mkdir -p ../site/haxs/
 cp index.html ../site/haxs/
 cp ../payload/payload.png ../site/haxs/
-cp ../exp/rd.png ../site/haxs/
+cp ../rd.png ../site/haxs/
 cp ../htaccess_redirect ../site/.htaccess
 cp ../htaccess_handler ../site/haxs/.htaccess
 
